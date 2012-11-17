@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Tools">
+        <attr name="icon" format="reference" />
+        <attr name="icon_selected" format="reference" />
+        <attr name="menu" format="boolean" />
+    </declare-styleable>
+
+</resources>

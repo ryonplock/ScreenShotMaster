@@ -1,0 +1,354 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/a" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_tool"
+        android:layout_width="fill_parent"
+        android:layout_height="75px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:gravity="bottom" >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="75px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/bottom_background" />
+
+        <ImageView
+            android:id="@+id/color_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/colorpicker" />
+
+        <com.simpleyyt.screenshotmaster.ColorMenu
+            android:id="@+id/popup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:clickable="true"
+            android:visibility="gone" />
+
+        <com.simpleyyt.screenshotmaster.ColorCircle
+            android:id="@+id/circle"
+            android:layout_width="80px"
+            android:layout_height="68px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" >
+        </com.simpleyyt.screenshotmaster.ColorCircle>
+
+        <ImageView
+            android:id="@+id/pen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/color_picker"
+            android:src="@drawable/pen_btn" />
+
+        <ImageView
+            android:id="@+id/pen_highlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/color_picker"
+            android:src="@drawable/selected"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/pen_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/pen"
+            android:layout_alignParentBottom="true"
+            android:onClick="pen_clicked"
+            android:src="@drawable/up_arrow" />
+
+        <com.simpleyyt.screenshotmaster.PenPopup
+            android:id="@+id/pen_popup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="37px"
+            android:clickable="true"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/pen_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/arrow"
+            android:onClick="pen_clicked"
+            android:src="@drawable/pen_selected"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/rect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/rect_btn" />
+
+        <ImageView
+            android:id="@+id/rect_highlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/text"
+            android:scaleType="fitXY"
+            android:src="@drawable/selected"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/up_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:onClick="rect_clicked"
+            android:src="@drawable/up_arrow" />
+
+        <com.simpleyyt.screenshotmaster.RectPopup
+            android:id="@+id/rect_popup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/rect_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:onClick="rect_clicked"
+            android:src="@drawable/rect_selected"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/pen"
+            android:onClick="arrow_clicked"
+            android:src="@drawable/arrow_btn" />
+
+        <ImageView
+            android:id="@+id/arrow_highlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/pen"
+            android:src="@drawable/selected"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/arrow_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/pen"
+            android:onClick="arrow_clicked"
+            android:src="@drawable/arrow_selected"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/hand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/text"
+            android:onClick="hand_clicked"
+            android:src="@drawable/hand_btn" />
+
+        <ImageView
+            android:id="@+id/hand_highlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/text"
+            android:scaleType="center"
+            android:src="@drawable/selected"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/hand_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/text"
+            android:onClick="hand_clicked"
+            android:src="@drawable/hand_selected"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/rect"
+            android:onClick="text_clicked"
+            android:src="@drawable/text_btn" />
+
+        <ImageView
+            android:id="@+id/text_highlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/rect"
+            android:src="@drawable/selected"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/text_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/rect"
+            android:onClick="text_clicked"
+            android:src="@drawable/text_selected"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/top_tool"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="75px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/top_background" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/crop"
+            android:clickable="true"
+            android:paddingLeft="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/tools_selector" />
+
+        <ImageView
+            android:id="@+id/crop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/crop" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/crop"
+            android:clickable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/tools_selector" />
+
+        <ImageView
+            android:id="@+id/trash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/crop"
+            android:src="@drawable/trash" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/trash"
+            android:clickable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/tools_selector" />
+
+        <ImageView
+            android:id="@+id/undo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/trash"
+            android:src="@drawable/undo" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/share"
+            android:clickable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/tools_selector" />
+
+        <ImageView
+            android:id="@+id/redo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/share"
+            android:src="@drawable/redo" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/save"
+            android:clickable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/tools_selector" />
+
+        <ImageView
+            android:id="@+id/share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/save"
+            android:src="@drawable/share" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/save"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:clickable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/tools_selector" />
+
+        <ImageView
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/save" />
+    </RelativeLayout>
+
+</RelativeLayout>
